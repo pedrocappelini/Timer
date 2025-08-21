@@ -1,7 +1,7 @@
-import { app, shell, BrowserWindow, ipcMain, globalShortcut } from 'electron'
-import { join } from 'path'
-import { electronApp, optimizer, is } from '@electron-toolkit/utils'
-import icon from '../../resources/icon.png?asset'
+import { app, shell, BrowserWindow, ipcMain, globalShortcut } from "electron";
+import { join } from "path";
+import { electronApp, optimizer, is } from "@electron-toolkit/utils";
+import icon from "../../resources/icon.png?asset";
 
 function createWindow() {
   const mainWindow = new BrowserWindow({
@@ -12,66 +12,66 @@ function createWindow() {
     frame: false,
     transparent: true,
     autoHideMenuBar: true,
-    ...(process.platform === 'linux' ? { icon } : {}),
+    ...(process.platform === "linux" ? { icon } : {}),
     webPreferences: {
-      preload: join(__dirname, '../preload/index.js'),
-      sandbox: false
-    }
-  })
+      preload: join(__dirname, "../preload/index.js"),
+      sandbox: false,
+    },
+  });
 
-  let toggleOverlayHotkey = "shift+p"
-  let isOverlayOn = false
+  let toggleOverlayHotkey = "shift+p";
+  let isOverlayOn = false;
 
   globalShortcut.register(toggleOverlayHotkey, () => {
-    isOverlayOn = !isOverlayOn
-    mainWindow.setIgnoreMouseEvents(isOverlayOn)
-    
-    mainWindow.webContents.send("overlay-mode", isOverlayOn)
-    console.log("Overlay", isOverlayOn ? "enabled" : "disabled")
-  })
+    isOverlayOn = !isOverlayOn;
+    mainWindow.setIgnoreMouseEvents(isOverlayOn);
 
-  mainWindow.setAlwaysOnTop(true)
-  mainWindow.on('ready-to-show', () => {
-    mainWindow.show()
-  })
+    mainWindow.webContents.send("overlay-mode", isOverlayOn);
+    console.log("Overlay", isOverlayOn ? "enabled" : "disabled");
+  });
+
+  mainWindow.setAlwaysOnTop(true);
+  mainWindow.on("ready-to-show", () => {
+    mainWindow.show();
+  });
 
   mainWindow.webContents.setWindowOpenHandler((details) => {
-    shell.openExternal(details.url)
-    return { action: 'deny' }
-  })
+    shell.openExternal(details.url);
+    return { action: "deny" };
+  });
 
-  if (is.dev && process.env['ELECTRON_RENDERER_URL']) {
-    mainWindow.loadURL(process.env['ELECTRON_RENDERER_URL'])
+  if (is.dev && process.env["ELECTRON_RENDERER_URL"]) {
+    mainWindow.loadURL(process.env["ELECTRON_RENDERER_URL"]);
   } else {
-    mainWindow.loadFile(join(__dirname, '../renderer/index.html'))
+    mainWindow.loadFile(join(__dirname, "../renderer/index.html"));
   }
 }
 
 app.whenReady().then(() => {
-  electronApp.setAppUserModelId('com.electron')
+  electronApp.setAppUserModelId("com.electron");
 
-  app.on('browser-window-created', (_, window) => {
-    optimizer.watchWindowShortcuts(window)
-  })
+  app.on("browser-window-created", (_, window) => {
+    optimizer.watchWindowShortcuts(window);
+  });
 
-  ipcMain.on("close-window", ()=>{
-    const currentWindow = BrowserWindow.getFocusedWindow()
+  ipcMain.on("close-window", () => {
+    const currentWindow = BrowserWindow.getFocusedWindow();
     if (currentWindow) {
-      currentWindow.close()
-    } 
-  })
-  ipcMain.on("minimize-window", ()=>{
-    const currentWindow = BrowserWindow.getFocusedWindow()
-    if (currentWindow) {
-      currentWindow.minimize()
+      currentWindow.close();
     }
-  })
+  });
+  ipcMain.on("minimize-window", () => {
+    const currentWindow = BrowserWindow.getFocusedWindow();
+    if (currentWindow) {
+      currentWindow.minimize();
+    }
+  });
 
-  createWindow()
-})
+  createWindow();
+});
 
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit()
+app.on("window-all-closed", () => {
+  if (process.platform !== "darwin") {
+    app.quit();
   }
-})
+});
