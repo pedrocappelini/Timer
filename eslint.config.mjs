@@ -26,6 +26,7 @@ export default [
       ...eslintPluginReactRefresh.configs.vite.rules,
       "react/prop-types": "warn",
       "no-unused-vars": "warn",
+      "editor.hover.enabled" : false
     }
   },
 ]

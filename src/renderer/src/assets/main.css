@@ -4,4 +4,9 @@
 
 html{
     font-family: 'Courier New', Courier, monospace;
+    overflow: hidden;
+}
+
+button:hover{
+    transform: scale(1.1);
 }
