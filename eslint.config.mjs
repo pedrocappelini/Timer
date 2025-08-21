@@ -24,6 +24,8 @@ export default [
     rules: {
       ...eslintPluginReactHooks.configs.recommended.rules,
       ...eslintPluginReactRefresh.configs.vite.rules,
+      "react/prop-types": "warn",
+      "no-unused-vars": "warn",
     }
   },
 ]

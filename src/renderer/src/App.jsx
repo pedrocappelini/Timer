@@ -1,10 +1,15 @@
 import TopBar from "./components/TopBar"
+import Timer from "./components/Timer"
+import { useState } from "react"
 
 function App() {
+const [isOverlay, setIsOverlay] = useState(false)  
   return (
     <>
     <TopBar></TopBar>
-      <h1 className="text-3xl font-bold underline">HumbertoSilva</h1>
+    <div className='bg-black bg-opacity-40 p-2 rounded-b-xl'>
+    <Timer></Timer>
+    </div>
     </>
   )
 }
