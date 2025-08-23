@@ -41,7 +41,7 @@ export default function TimeScroller({ label, value, onChange, max }) {
       <div
         ref={scrollerRef}
         onScroll={handleScroll}
-        className="h-24 w-16 overflow-y-scroll overflow-x-hidden snap-y snap-mandatory hide-scrollbar relative l-2"
+        className="h-24 w-16 overflow-y-scroll overflow-x-hidden snap-y snap-mandatory hide-scrollbar relative "
         style={{
           maskImage:
             "linear-gradient(to bottom, transparent, black 25%, black 75%, transparent)",
