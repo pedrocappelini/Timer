@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import alarm from "../assets/sounds/alarm.wav";
-import InputField from "./InputField";
+import TimeScroller from "./TimeScroller";
 export default function Timer({ isOverlay }) {
   const [isEditing, setIsEditing] = useState(false);
   const [minutes, setMinutes] = useState(0);
@@ -60,35 +60,31 @@ export default function Timer({ isOverlay }) {
     <div>
       {isEditing ? (
         //setup
-        <div className="flex justify-center">
-          <div className="">
-            <InputField
-              label={"Hours"}
-              value={hours}
-              onChange={(e) => setHours(parseInt(e.target.value))}
-            ></InputField>
-            <InputField
-              label={"Minutes"}
-              value={minutes}
-              onChange={(e) => setMinutes(parseInt(e.target.value))}
-            ></InputField>
-            <InputField
-              label={"Seconds"}
-              value={seconds}
-              onChange={(e) => setSeconds(parseInt(e.target.value))}
-            ></InputField>
+        <div className="">
+          <div className="flex justify-center items-center space-x-1">
+            <TimeScroller value={hours} onChange={setHours} max={23} />
+            <div></div>
+            <span className="text-5xl text-gray-600 pb-8 h-14">:</span>
+            <TimeScroller value={minutes} onChange={setMinutes} max={59} />
+            <span className="text-5xl text-gray-600 pb-8 h-14">:</span>
+            <TimeScroller value={seconds} onChange={setSeconds} max={59} />
+          </div>
+          <div
+            id="ReadyButton"
+            className="flex justify-center mt-2 gap-4 bg-black p-2 rounded-lg bg-opacity-50 w-full"
+          >
             <button
-              className="bg-green-500 text-white text-stone-200 px-20 py-1 rounded-xl text-xl mt-1 ml-1"
+              className="flex text-green-300 font-bold px-20 rounded-xl text-xl "
               onClick={() => setIsEditing(false)}
             >
-              &#10004;
+              &#10003;
             </button>
           </div>
         </div>
       ) : (
         //timer
         <div>
-          <div id="clock" className="flex justify-center">
+          <div id="clock" className="flex justify-center font-bold">
             <h1 className="text-green-500 text-6xl">{`${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`}</h1>
           </div>
 
