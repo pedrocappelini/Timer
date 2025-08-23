@@ -62,13 +62,13 @@ It’s designed to be a simple, unobtrusive tool to help you stay focused — wi
 
 ```bash
 # Clone the repo
-git clone https://github.com/your-username/compact-timer.git
+git clone https://github.com/pedrocappelini/Timer
 
 # Go into the project folder
-cd compact-timer
+cd Timer
 
 # Install dependencies
 npm install
 
 # Run the app
-npm start
+npm start / npm run dev
