@@ -1,54 +1,74 @@
-⏱️ Compact Timer & Stopwatch
-A sleek and minimal desktop timer and stopwatch application built with Electron and React. It's designed to be a simple, unobtrusive tool to help you stay focused, with the option to use it as a standard window or as a convenient overlay on top of your work.
+# ⏱️ Compact Timer & Stopwatch
 
-!(https://www.google.com/search?q=https://i.imgur.com/your-image-link.png)
+A sleek and minimal **desktop timer and stopwatch** application built with **Electron** and **React**.  
+It’s designed to be a simple, unobtrusive tool to help you stay focused — with the option to use it as a standard window or as a convenient overlay on top of your work.
 
-<!-- Replace with a link to a screenshot of your app -->
+---
 
-✨ Features
-Dual Modes: Functions as both a countdown Timer and a count-up Stopwatch.
+## ✨ Features
 
-Intuitive Time Setting: Easily set the time using interactive scroll wheels.
+- **Dual Modes** → Functions as both a countdown **Timer** and a count-up **Stopwatch**  
+- **Intuitive Time Setting** → Scroll-based controls to set hours, minutes, and seconds  
+- **Overlay Mode** → Pin the timer as a semi-transparent, click-through overlay that stays on top of all windows  
+- **Alarm Sound** → Simple audio alert when the countdown finishes  
+- **Clean & Minimal UI** → Modern interface built with Tailwind CSS  
+- **Global Shortcut** → Quickly toggle overlay mode with a keyboard shortcut  
 
-Overlay Mode: Pin the timer as a semi-transparent, click-through overlay that stays on top of all other windows.
+---
 
-Alarm Sound: A simple audio alert plays when the countdown timer finishes.
+## 💻 Technology Stack
 
-Clean & Minimal UI: A modern interface built with Tailwind CSS that stays out of your way.
+- ⚡ **Electron** → Cross-platform desktop app framework  
+- ⚛️ **React** → Dynamic UI components  
+- 🎨 **Tailwind CSS** → Modern styling and layout  
 
-Global Shortcut: Toggle the overlay on and off with a simple keyboard shortcut.
+---
 
-💻 Technology Stack
-This application is built using modern web technologies wrapped in a desktop shell:
+## 🚀 How to Use
 
-Electron: To build the cross-platform desktop application.
+### Main Controls
 
-React: For creating the dynamic user interface.
+#### When Paused
+- ▶️ **Start** → Begins the countdown or stopwatch  
+- ⚙️ **Edit** → Switches to the time-setting view (scroll to set hours, minutes, and seconds)  
+- 🔼/🔽 **Mode Switch** → Toggle between:  
+  - Timer mode (🔽 counts down from set time)  
+  - Stopwatch mode (🔼 counts up from zero)  
 
-Tailwind CSS: For all styling and layout.
+#### When Running
+- ⏸️ **Pause** → Pauses timer or stopwatch  
+- ⏮️ **Reset** → Stops and resets to zero  
 
-🚀 How to Use
-Main Controls
-The controls are simple and intuitive, changing based on whether the timer is running or paused.
+---
 
-When Paused:
-▶️ Start: Begins the countdown or stopwatch.
+### ⌨️ Global Shortcut: Overlay Mode
 
-⚙️ Edit: Switches to the time-setting view where you can scroll to set the hours, minutes, and seconds.
+- **Shortcut:** `Shift + P`  
+- **Functionality:**  
+  - Window stays **always on top**  
+  - Becomes **semi-transparent**  
+  - **Ignores mouse clicks** → lets you work without interference  
+- Press again to return to standard window mode  
 
-🔼/🔽 Mode Switch: Toggles between Timer mode (🔽 - counts down from the set time) and Stopwatch mode (🔼 - counts up from zero).
+---
 
-When Running:
-⏸️ Pause: Pauses the timer or stopwatch.
+## 🔮 Future Plans
 
-⏮️ Reset: Stops the timer and resets the time to zero.
+- 🕒 **Working Clock Mode** → Add a third mode to display the current time, turning the app into a complete time-management tool.  
 
-Global Shortcut: Overlay Mode
-To maximize productivity, you can toggle the application's Overlay Mode.
+---
 
-Shortcut: Press Shift + P
+## 📦 Installation
 
-Functionality: This will make the application window always on top, semi-transparent, and ignore mouse clicks, so you can see your timer without it interfering with your work. Press the shortcut again to return to the standard window mode.
+```bash
+# Clone the repo
+git clone https://github.com/your-username/compact-timer.git
 
-🔮 Future Plans
-Working Clock Mode: I plan to add a third mode that will display the current time, turning the application into a complete time-management tool.
+# Go into the project folder
+cd compact-timer
+
+# Install dependencies
+npm install
+
+# Run the app
+npm start
