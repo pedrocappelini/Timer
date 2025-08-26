@@ -8,7 +8,7 @@ It’s designed to be a simple, unobtrusive tool to help you stay focused — wi
 ## ✨ Features
 
 - **Dual Modes** → Functions as both a countdown **Timer** and a count-up **Stopwatch**  
-- **Intuitive Time Setting** → Scroll-based controls to set hours, minutes, and seconds  
+- **Intuitive Time Setting** → Scroll-based controls to set hours, minutes, and seconds (Doesn't work properly on mouse, only on touchpad)
 - **Overlay Mode** → Pin the timer as a semi-transparent, click-through overlay that stays on top of all windows  
 - **Alarm Sound** → Simple audio alert when the countdown finishes  
 - **Clean & Minimal UI** → Modern interface built with Tailwind CSS  
